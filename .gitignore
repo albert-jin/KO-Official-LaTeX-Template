@@ -11,18 +11,18 @@
 
 # Core LaTeX template sources
 !ko-template.cls
-!Microsoft-Word-Article-template-KO.tex
+!LaTex-Article-template-KO.tex
 !references.bib
 
 # Required template assets
-!KO-header.png
-!KO-footnote.jpg
-!Fig. 1. Figure title.jpg
+!figures/
+!figures/KO-header.png
+!figures/KO-footnote.jpg
+!figures/Fig. 1. Figure title.jpg
 
 # Official/source reference material allowed on GitHub
 !Microsoft-Word-Article-template-KO.docx
-!KO-出版paper的引用的格式.txt
 
 # Final distributable package, generated after the template is complete
 !KO-LaTeX-Article-Template.zip
-!Microsoft-Word-Article-template-KO-latex.pdf
+!LaTex-Article-template-KO.pdf

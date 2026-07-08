@@ -17,9 +17,9 @@ Authors can download the complete LaTeX package here:
 The ZIP package is expected to contain:
 
 - `ko-template.cls`: the document class that defines the KO-style page layout, headings, line numbers, typography, and figure/table formatting.
-- `Microsoft-Word-Article-template-KO.tex`: the editable sample manuscript matching the official Word template content.
+- `LaTex-Article-template-KO.tex`: the editable sample manuscript matching the official Word template content.
 - `references.bib`: sample BibTeX references in the KO publication style.
-- `KO-header.png`, `KO-footnote.jpg`, and `Fig. 1. Figure title.jpg`: image assets used by the template.
+- `figures/KO-header.png`, `figures/KO-footnote.jpg`, and `figures/Fig. 1. Figure title.jpg`: image assets used by the template.
 
 If the link does not download automatically, open the file page on GitHub and click **Download raw file**.
 
@@ -27,7 +27,7 @@ If the link does not download automatically, open the file page on GitHub and cl
 
 The LaTeX-compiled PDF is included for quick visual inspection:
 
-[View the compiled LaTeX PDF](./Microsoft-Word-Article-template-KO-latex.pdf)
+[View the compiled LaTeX PDF](./LaTex-Article-template-KO.pdf)
 
 ## Source Template
 
@@ -42,11 +42,11 @@ Authors should edit the `.tex` file for manuscript content and keep the `.cls` f
 Compile the sample manuscript with XeLaTeX and Biber:
 
 ```bash
-latexmk -xelatex -jobname=Microsoft-Word-Article-template-KO-latex Microsoft-Word-Article-template-KO.tex
+latexmk -xelatex -jobname=LaTex-Article-template-KO LaTex-Article-template-KO.tex
 ```
 
-The `-jobname` keeps the generated LaTeX PDF at `Microsoft-Word-Article-template-KO-latex.pdf` and avoids overwriting the Word-exported reference PDF.
+The `-jobname` keeps the generated LaTeX PDF at `LaTex-Article-template-KO.pdf` and avoids overwriting the Word-exported reference PDF.
 
 ## Repository Contents
 
-This repository is designed to publish only the source template, required image assets, the Word reference template, the compiled preview PDF, and the final downloadable ZIP package. Temporary Word lock files, rendered screenshots, published-paper references, and LaTeX build artifacts are intentionally excluded by `.gitignore`.
+This repository is designed to publish only the source template, required image assets under `figures/`, the Word reference template, the compiled preview PDF, and the final downloadable ZIP package. Temporary Word lock files, rendered screenshots, published-paper reference scratch files, and LaTeX build artifacts are intentionally excluded by `.gitignore`.

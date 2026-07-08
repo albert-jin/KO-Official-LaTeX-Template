@@ -60,8 +60,8 @@
 \setlength\linenumbersep{18pt}
 \renewcommand\linenumberfont{\normalfont\fontsize{10.5}{15.6}\selectfont}
 
-\newcommand{\KOHeaderImage}{KO-header.png}
-\newcommand{\KOFooterImage}{KO-footnote.jpg}
+\newcommand{\KOHeaderImage}{figures/KO-header.png}
+\newcommand{\KOFooterImage}{figures/KO-footnote.jpg}
 \newcommand{\KOPlaceImage}[3]{%
   \put(\LenToUnit{#1},\LenToUnit{#2}){\includegraphics[width=#3]{\KOHeaderImage}}%
 }
