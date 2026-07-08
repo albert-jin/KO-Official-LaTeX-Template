@@ -1,0 +1,28 @@
+# Allowlist-style Git ignore for the public KO LaTeX template repository.
+# Everything is ignored first; only the files explicitly unignored below are uploaded.
+
+/*
+/.*
+
+!.gitignore
+!README.md
+!LICENSE
+!LICENSE.md
+
+# Core LaTeX template sources
+!ko-template.cls
+!Microsoft-Word-Article-template-KO.tex
+!references.bib
+
+# Required template assets
+!KO-header.png
+!KO-footnote.jpg
+!Fig. 1. Figure title.jpg
+
+# Official/source reference material allowed on GitHub
+!Microsoft-Word-Article-template-KO.docx
+!KO-出版paper的引用的格式.txt
+
+# Final distributable package, generated after the template is complete
+!KO-LaTeX-Article-Template.zip
+!Microsoft-Word-Article-template-KO-latex.pdf

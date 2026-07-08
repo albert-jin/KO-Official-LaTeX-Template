@@ -1,0 +1,65 @@
+References
+Adolpho K, Billey A, Johnson J, Kizzie J, Rawson KJ, Roles, C,
+et al. Homosaurus Documentation and Implementation. 2023.
+Available at: https://docs.google.com/document/d/1PgwSKG
+Hnr4dokazFRbkoqQuYWbw8c_0LWYw0L2rkyAw/edit?ta
+b=t.0 (Accessed: 11 February 2025).
+Aljanabi M, Ghazi M, Ali AH, Abed SA. ChatGpt: open possi
+bilities. Iraqi Journal for Computer Science and Mathematics.
+2023; 4: 7. https://doi.org/10.52866/ijcsm.2023.01.01.0018
+Bagchi M. Towards knowledge organization ecosystem (KOE).
+Cataloging & Classification Quarterly. 2021; 59: 740–756.
+https://doi.org/10.1080/01639374.2021.1998282
+Bail CA. Can Generative AI improve social science?. Pro
+ceedings of the National Academy of Sciences. 2024; 121:
+e2314021121. https://doi.org/10.1073/pnas.2314021121
+Beghtol C. Semantic validity: concepts of warrant in biblio
+graphic classification systems. Library Resources & Techni
+cal Services. 1986; 30: 109–125.
+Berners-Lee T, Hendler J. Publishing on the se
+mantic web. Nature. 2001; 410:
+1023–1024.
+https://doi.org/10.1038/35074206
+Buçinca Z, Malaya MB, Gajos KZ. To trust or to think:
+cognitive forcing functions can reduce overreliance on
+AI in AI-assisted decision-making. Proceedings of the
+ACM on Human-Computer Interaction. 2021; 5: 1–21.
+https://doi.org/10.1145/3449287
+Campbell
+on
+J.
+Google
+‘Gulf
+Maps.
+of
+2025.
+America’
+Available
+arrives
+at:
+https://edition.cnn.com/2025/02/11/business/trump-gulf
+of-america-google-maps-hnk-intl/index.html (Accessed: 11
+February 2025).
+Cheng YY, Choi I, Bettivia R, Lee WC, Watson BM. Knowl
+edge Organization Systems and Provenance: Experiences and
+Challenges. Proceedings of the Association for Information
+Science and Technology. 2024; 61: 741-744.
+Choi I, Cheng YY. A conceptual model for tracking the prove
+nance of activities in knowledge organization systems. Jour
+nal of documentation. 2025; 81: 147-167.
+Cremonez Rosa P, Barizon Filho AL, Torrão Valentim R, Tog
+noli N. Datafication, Artificial Intelligence and Images: The
+Dominant Paradigm in the Representation of Knowledge
+in Images. Knowledge Organization. 2024; 51: 117–126.
+https://doi.org/10.5771/0943-7444-2024-2-117
+Dobreski B. Common usage as warrant in bibliographic de
+scription. Journal of Documentation. 2020; 76: 49–66.
+https://doi.org/10.1108/JD-05-2019-0094
+Giunchiglia F, Dutta B, Maltese V. From knowledge organiza
+tion to knowledge representation. Knowledge Organization.
+2014; 41: 44–56. https://doi.org/10.5771/0943-7444-2014-1
+44
+Goodrich B, Rao V, Liu PJ, Saleh M. Assessing the factual ac
+curacy of generated text. In Proceedings of the 25th ACM
+SIGKDD International Conference on Knowledge Discovery
+&Data Mining (pp. 166–175). 2019
