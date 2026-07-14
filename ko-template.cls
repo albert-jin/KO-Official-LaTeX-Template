@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ko-template}[2026/07/08 Knowledge Organization Word-template replacement]
+\ProvidesClass{ko-template}[2026/07/14 Knowledge Organization Word-template replacement]
 
 \LoadClass[10pt,a4paper]{article}
 
@@ -51,11 +51,16 @@
 \urlstyle{same}
 
 \pagestyle{empty}
+\newcommand{\KONormalParagraphStyle}{%
+  \fontsize{10.5}{15.6}\selectfont
+  \setlength{\parindent}{21pt}%
+  \setlength{\parskip}{0pt}%
+}
 \setlength{\parindent}{21pt}
 \setlength{\parskip}{0pt}
 \setlength{\tabcolsep}{6pt}
 \renewcommand{\arraystretch}{1.08}
-\AtBeginDocument{\fontsize{10.5}{15.6}\selectfont}
+\AtBeginDocument{\KONormalParagraphStyle}
 
 \setlength\linenumbersep{18pt}
 \renewcommand\linenumberfont{\normalfont\fontsize{10.5}{15.6}\selectfont}
@@ -90,6 +95,7 @@
 \newcommand{\KOStartManuscript}{%
   \KOBodyFirstDecor
   \vspace*{9pt}%
+  \KONormalParagraphStyle
   \setcounter{linenumber}{1}%
   \linenumbers
 }
@@ -122,8 +128,8 @@
   \noindent{\bfseries\fontsize{18}{21.6}\selectfont #1}\par
   \vspace{18pt}%
 }
-\newcommand{\KONoIndent}[1]{\par\noindent #1\par}
-\newcommand{\KOParagraph}[1]{\par #1\par}
+\newcommand{\KONoIndent}[1]{\par\KONormalParagraphStyle\noindent #1\par}
+\newcommand{\KOParagraph}[1]{\par\KONormalParagraphStyle #1\par}
 \newcommand{\KOLineBlank}{\par\noindent\mbox{}\par}
 
 \newcommand{\KOSection}[1]{%

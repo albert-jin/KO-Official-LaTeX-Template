@@ -36,6 +36,7 @@ The original Word template is included for comparison:
 [Microsoft-Word-Article-template-KO.docx](./Microsoft-Word-Article-template-KO.docx)
 
 Authors should edit the `.tex` file for manuscript content and keep the `.cls` file as the shared journal template unless journal formatting rules change.
+Ordinary manuscript paragraphs can be written directly in the `.tex` file; leave a blank line between paragraphs. Use helper commands such as `\KONoIndent{}` only for lines that intentionally need special formatting.
 
 ## Recommended Build
 
