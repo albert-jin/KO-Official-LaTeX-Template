@@ -1,13 +1,18 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ko-template}[2026/09/16 Knowledge Organization author template]
+\ProvidesClass{ko-template}[2026/09/16 v1.1 Knowledge Organization Article Template]
 
 \newif\ifKOportablefonts
+\newif\ifKOlegacydecor
+\newif\ifKOblankseparator
 \DeclareOption{portablefonts}{\KOportablefontstrue}
+\DeclareOption{legacydecor}{\KOlegacydecortrue}
+\DeclareOption{blankseparator}{\KOblankseparatortrue}
 \ProcessOptions\relax
 
 \LoadClass[10pt,a4paper]{article}
 
 \RequirePackage{iftex}
+\RequirePackage{etoolbox}
 \ifXeTeX
 \else
   \ifLuaTeX
@@ -21,7 +26,6 @@
 \RequirePackage{fontspec}
 \RequirePackage{graphicx}
 \RequirePackage[table]{xcolor}
-\RequirePackage{soul}
 \RequirePackage{eso-pic}
 \RequirePackage{lineno}
 \RequirePackage{needspace}
@@ -29,9 +33,9 @@
 \RequirePackage{array}
 \RequirePackage{tabularx}
 \RequirePackage{booktabs}
+\RequirePackage{caption}
 \RequirePackage{amsmath}
 \RequirePackage{unicode-math}
-\RequirePackage{hyperref}
 \RequirePackage[
   backend=biber,
   style=authoryear,
@@ -48,6 +52,7 @@
   uniquename=init,
   dashed=false
 ]{biblatex}
+\RequirePackage{hyperref}
 
 \newcommand{\KOSelectFont}[3]{%
   \ifKOportablefonts
@@ -75,7 +80,6 @@
 \definecolor{KOGray}{HTML}{A6A6A6}
 \definecolor{KODarkGray}{HTML}{767171}
 \definecolor{KOLink}{HTML}{0070C0}
-\sethlcolor{yellow}
 
 \hypersetup{
   colorlinks=true,
@@ -86,8 +90,38 @@
 \urlstyle{same}
 
 \pagestyle{empty}
+% Make size switches restore the KO sizes, including after floats and lists.
+\renewcommand{\normalsize}{%
+  \@setfontsize\normalsize{10.5}{15.6}%
+  \abovedisplayskip 10pt plus 2pt minus 5pt
+  \abovedisplayshortskip 0pt plus 3pt
+  \belowdisplayshortskip 6pt plus 3pt minus 3pt
+  \belowdisplayskip\abovedisplayskip
+  \let\@listi\@listI
+}
+\renewcommand{\small}{%
+  \@setfontsize\small{9}{12}%
+  \abovedisplayskip 8pt plus 2pt minus 4pt
+  \abovedisplayshortskip 0pt plus 2pt
+  \belowdisplayshortskip 4pt plus 2pt minus 2pt
+  \belowdisplayskip\abovedisplayskip
+}
+\renewcommand{\footnotesize}{%
+  \@setfontsize\footnotesize{8}{10}%
+  \abovedisplayskip 6pt plus 2pt minus 3pt
+  \abovedisplayshortskip 0pt plus 1pt
+  \belowdisplayshortskip 3pt plus 1pt minus 2pt
+  \belowdisplayskip\abovedisplayskip
+}
+\normalsize
+\DeclareCaptionFont{ko}{\fontsize{9}{12}\selectfont}
+\captionsetup{font=ko,labelsep=period}
+\captionsetup[figure]{name=Fig.,labelfont=bf,textfont=normalfont,
+  justification=justified,singlelinecheck=false,position=bottom,skip=6pt}
+\captionsetup[table]{labelfont=bf,textfont=bf,
+  justification=centering,singlelinecheck=false,position=top,skip=8pt}
 \newcommand{\KONormalParagraphStyle}{%
-  \fontsize{10.5}{15.6}\selectfont
+  \normalsize
   \setlength{\parindent}{21pt}%
   \setlength{\parskip}{0pt}%
 }
@@ -101,7 +135,7 @@
 \renewcommand\linenumberfont{\normalfont\fontsize{10.5}{15.6}\selectfont}
 
 \newcommand{\KOHeaderImage}{figures/KO-header.png}
-\newcommand{\KOFooterImage}{figures/KO-footnote.jpg}
+\newcommand{\KOFooterImage}{figures/KO-footer.jpg}
 \newcommand{\KOIncludeGraphics}[2][]{%
   \IfFileExists{#2}{\includegraphics[#1]{#2}}{%
     \ClassError{ko-template}{Missing template image: #2}{Download and extract the complete KO template ZIP. Keep the figures folder beside the main .tex file.}}%
@@ -115,14 +149,18 @@
 \newcommand{\KOFrontDecor}{%
   \AddToShipoutPictureFG*{%
     \put(\LenToUnit{54pt},\LenToUnit{771pt}){\KOIncludeGraphics[width=1.974in]{\KOHeaderImage}}%
-    \put(\LenToUnit{54pt},\LenToUnit{34pt}){\KOIncludeGraphics[width=5.599in]{\KOFooterImage}}%
+    \ifKOlegacydecor
+      \put(\LenToUnit{54pt},\LenToUnit{34pt}){\KOIncludeGraphics[width=5.599in]{\KOFooterImage}}%
+    \fi
   }%
 }
 \newcommand{\KOBodyFirstDecor}{%
+  \ifKOlegacydecor
   \AddToShipoutPictureFG*{%
     \put(\LenToUnit{54pt},\LenToUnit{754pt}){\KOIncludeGraphics[width=1.974in]{\KOHeaderImage}}%
     \put(\LenToUnit{54pt},\LenToUnit{34pt}){\KOIncludeGraphics[width=5.599in]{\KOFooterImage}}%
   }%
+  \fi
 }
 
 \newcommand{\KOBlankPage}{%
@@ -130,10 +168,13 @@
   \thispagestyle{empty}\null
   \clearpage
 }
+\newcommand{\KOEndCover}{%
+  \ifKOblankseparator\KOBlankPage\else\clearpage\fi
+}
 
 \newcommand{\KOStartManuscript}{%
   \KOBodyFirstDecor
-  \vspace*{9pt}%
+  \ifKOlegacydecor\vspace*{9pt}\fi
   \KONormalParagraphStyle
   \setcounter{linenumber}{1}%
   \linenumbers
@@ -165,9 +206,15 @@
   \KOCoverField{Running~title}{#1}
 }
 \ExplSyntaxOff
-\newcommand{\KOHighlight}[1]{\begingroup\sethlcolor{yellow}\hl{#1}\endgroup}
+% Compatibility alias: inline emphasis no longer depends on soul.
+\newcommand{\KOHighlight}[1]{{\color{KODarkGray}#1}}
+\newcommand{\KONote}[1]{%
+  \par\addvspace{6pt}%
+  {\small\color{KODarkGray}\noindent\textbf{Note:} #1\par}%
+  \addvspace{6pt}%
+}
 \newcommand{\KOCoverHighlight}[1]{%
-  \noindent{\fontsize{9}{14.4}\selectfont\KOHighlight{#1}}\par
+  \noindent{\fontsize{9}{14.4}\selectfont\bfseries #1}\par
 }
 \newcommand{\KOOrcidLine}[1]{%
   \noindent{\fontsize{10.5}{14.4}\selectfont #1}\par
@@ -216,15 +263,15 @@
 }
 \newcommand{\KOTableCaption}[1]{%
   \par\vspace{10pt}%
-  \noindent\makebox[\linewidth][c]{\bfseries\fontsize{9}{12}\selectfont #1}\par
+  {\centering\bfseries\fontsize{9}{12}\selectfont #1\par}%
   \vspace{13pt}%
 }
-\newenvironment{KOTable}{%
+\newenvironment{KOTable}[1][@{}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X@{}]{%
   \par\begingroup
   \fontsize{10.5}{12.5}\selectfont
   \renewcommand{\arraystretch}{1.0}%
   \setlength{\arrayrulewidth}{0.4pt}%
-  \noindent\tabularx{\linewidth}{@{}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X@{}}%
+  \noindent\tabularx{\linewidth}{#1}%
   \hline
 }{%
   \endtabularx\par

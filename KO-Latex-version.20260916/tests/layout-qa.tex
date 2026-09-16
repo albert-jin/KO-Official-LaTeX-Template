@@ -1,0 +1,84 @@
+\documentclass{ko-template}
+\addbibresource{tests/references-qa.bib}
+\makeatletter
+\newcommand{\CheckKOFont}[3]{%
+  #1%
+  \ifdim\f@size pt=#2pt\else
+    \PackageError{KO-QA}{Incorrect font size: \f@size}{Expected #2pt}%
+  \fi
+  \ifdim\baselineskip=#3pt\else
+    \PackageError{KO-QA}{Incorrect baseline: \the\baselineskip}{Expected #3pt}%
+  \fi
+}
+\makeatother
+\begin{document}
+\KOStartManuscript
+\CheckKOFont{\normalsize}{10.5}{15.6}
+{\CheckKOFont{\small}{9}{12}Small text.}
+{\CheckKOFont{\footnotesize}{8}{10}Footnote-sized text.}
+\small\CheckKOFont{\normalsize}{10.5}{15.6}
+Normal text restored.\footnote{\CheckKOFont{\footnotesize}{8}{10}Footnote text.}
+
+\KOSection{Column specifications}
+\begin{KOTable}[@{}XX@{}]
+Two A & Two B\\\hline
+\end{KOTable}
+\begin{KOTable}[@{}XXX@{}]
+Three A & Three B & Three C\\\hline
+\end{KOTable}
+\begin{KOTable}
+Four A & Four B & Four C & Four D\\\hline
+\end{KOTable}
+\begin{KOTable}[@{}*{5}{X}@{}]
+Five A & Five B & Five C & Five D & Five E\\\hline
+\end{KOTable}
+\begin{KOTable}[@{}*{6}{X}@{}]
+Six A & Six B & Six C & Six D & Six E & Six F\\\hline
+\end{KOTable}
+\CheckKOFont{\normalsize}{10.5}{15.6}
+
+\begin{figure}[htbp]
+\centering
+\KOIncludeGraphics[width=.55\linewidth]{figures/Fig. 1. Figure title.jpg}
+\caption{Long figure caption fixture. This text deliberately runs across multiple lines to test wrapping, font size, automatic numbering, hyperlinks, and the alignment of captions in the standard figure environment. The caption must remain inside the text area without clipping or overlapping the image or surrounding text.}
+\label{fig:qa}
+\end{figure}
+\begin{table}[htbp]
+\caption{Long table caption fixture. This title deliberately occupies several lines so that the centered table caption wraps naturally and remains within the available text width.}
+\label{tab:qa}
+\begin{KOTable}[@{}XXX@{}]
+Alpha & Beta & Gamma\\\hline
+1 & 2 & 3\\\hline
+\end{KOTable}
+\end{table}
+\CheckKOFont{\normalsize}{10.5}{15.6}
+
+\KOSection{Standard mathematics}
+\begin{equation}
+a=1\label{eq:qa}
+\end{equation}
+\begin{align}
+b&=2\label{eq:align}\\
+c&=3
+\end{align}
+\begin{gather}
+d=4\label{eq:gather}\\
+e=5
+\end{gather}
+\begin{multline}
+x=a+b+c+d+e\\
++f+g+h.\label{eq:multline}
+\end{multline}
+\noindent Crossrefs: Fig.~\ref{fig:qa}; Table~\ref{tab:qa};
+equations \eqref{eq:qa}, \eqref{eq:align}, \eqref{eq:gather}, \eqref{eq:multline}.
+
+\KOSection{Legacy helpers}
+\KOEquation{z=0}{L1}
+\KOFigureImage{figures/Fig. 1. Figure title.jpg}
+\KOFigureCaption{Legacy figure caption remains available.}
+\KOTableCaption{Legacy table caption remains available and can wrap when its text is longer than one line in the available text area of the document.}
+\KOHighlight{Legacy emphasis with \emph{formatting}, a citation \parencite{one}, and a \href{https://example.org/}{link}.}
+\KONote{Plain note with a link: \href{https://example.org/}{example}. No soul dependency.}
+\CheckKOFont{\normalsize}{10.5}{15.6}
+\printbibliography[heading=none]
+\end{document}

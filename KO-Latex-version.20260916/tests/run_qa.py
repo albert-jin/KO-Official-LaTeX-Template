@@ -43,7 +43,7 @@ def verify_references(text):
     assert "Omitseven" not in text, "Seventh author should be omitted"
 
 
-def build(engine, source, directory, check_refs=False):
+def build(engine, source, directory, check_refs=False, layout=False, legacy=False):
     out = ROOT / "build" / directory
     out.mkdir(parents=True, exist_ok=True)
     stem = Path(source).stem
@@ -58,10 +58,28 @@ def build(engine, source, directory, check_refs=False):
     text = pdf_text(out / (stem + ".pdf"))
     if check_refs:
         verify_references(text)
+    elif layout:
+        for fragment in ["Two A", "Two B", "Three C", "Four D", "Five E", "Six F",
+                         "Fig. 1. Long figure caption fixture.",
+                         "Table 1. Long table caption fixture.",
+                         "Crossrefs: Fig. 1; Table 1; equations (1), (2), (4), (6).",
+                         "Legacy figure caption remains available.", "(L1)"]:
+            assert fragment in text, "Missing layout output: " + fragment
     else:
         for field in ["Running title:", "Word count (main text):", "Word count (abstract):",
                       "Figures / Tables:", "Correspondence:", "optional, but recommended"]:
             assert field in text, "Missing cover field: " + field
+        raw = subprocess.check_output(["pdftotext", "-layout", str(out / (stem + ".pdf")), "-"], cwd=ROOT)
+        pages = raw.decode("utf-8").split("\f")
+        assert "Abstract" in pages[2 if legacy else 1], "Unexpected manuscript starting page"
+        if legacy:
+            assert not pages[1].strip(), "Expected optional blank separator"
+        else:
+            assert all(page.strip() for page in pages[:-1]), "Unexpected blank page"
+        fls = (out / (stem + ".fls")).read_text(encoding="utf-8", errors="replace")
+        assert ("KO-footer.jpg" in fls) == legacy, "Unexpected footer artwork usage"
+        assert "soul.sty" not in fls, "Unexpected soul dependency"
+        assert "Fig. 1, Table 1, Eqn. (1)" in text, "Main manuscript cross-reference failure"
     print("PASS " + directory, flush=True)
 
 
@@ -81,6 +99,8 @@ if __name__ == "__main__":
         build(engine, "LaTex-Article-template-KO.tex", label)
         build(engine, "tests/references-qa.tex", "qa-" + label, True)
         build(engine, "tests/portable-qa.tex", "portable-" + label, True)
+        build(engine, "tests/layout-qa.tex", "layout-" + label, layout=True)
+        build(engine, "tests/legacy-layout.tex", "legacy-" + label, legacy=True)
         diagnostic(engine, "missing-font", "KO Nonexistent Font QA unavailable; using TeX Gyre Termes", False)
         diagnostic(engine, "missing-image", "Missing template image:", True)
         diagnostic(engine, "running-title", "Running title exceeds 60 characters", False)

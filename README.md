@@ -2,7 +2,7 @@
 
 # Knowledge Organization LaTeX Article Template
 
-This repository provides a LaTeX replacement for the KO Word article template. The latest version is **2026-09-16**, maintained in [KO-Latex-version.20260916](./KO-Latex-version.20260916/README.md). It includes the revised reference formatting, title-page fields, artwork guidance, font fallbacks, and validation tests.
+This repository provides a LaTeX replacement for the KO Word article template. The latest version is **2026-09-16 (v1.1)**, maintained in [KO-Latex-version.20260916](./KO-Latex-version.20260916/README.md). It includes revised references, configurable tables, standard figures and equations with cross-references, stable font sizes, and a simplified single-column author layout without a blank second page or copyright footer by default.
 
 All download and resource links below point to this version. The older template files in the repository root are retained for historical comparison and are not the current release. The old manuscript source is named `LaTex-Article-template-KO.tex.old`; the obsolete root-level ZIP has been removed.
 
@@ -17,13 +17,12 @@ The ZIP is generated from `KO-Latex-version.20260916/` and contains:
 - [ko-template.cls](./KO-Latex-version.20260916/ko-template.cls): page layout, headings, line numbers, typography, and reference formatting.
 - [LaTex-Article-template-KO.tex](./KO-Latex-version.20260916/LaTex-Article-template-KO.tex): the revised editable sample manuscript.
 - [references.bib](./KO-Latex-version.20260916/references.bib): sample references.
-- `figures/KO-header.png`, `figures/KO-footnote.jpg`, and `figures/Fig. 1. Figure title.jpg`: image assets used by the template.
+- `figures/KO-header.png`, `figures/KO-footer.jpg`, and `figures/Fig. 1. Figure title.jpg`: assets in the latest version; the footer is used only with the optional `legacydecor` mode.
 - The compiled PDF, original Word template, `.gitignore`, README, validation report, and test sources.
 
 See the [complete package manifest and instructions](./KO-Latex-version.20260916/README.md#release-contents). Paths inside the ZIP are relative to its extraction directory; the package is self-contained and does not use the older root-level files.
 
 If the link does not download automatically, open the file page on GitHub and click **Download raw file**.
-The GitHub download becomes available after the new version is pushed to the repository.
 
 ## Compiled Preview
 
