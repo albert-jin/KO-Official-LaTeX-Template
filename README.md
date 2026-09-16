@@ -16,9 +16,9 @@ The ZIP is generated from `KO-Latex-version.20260916/` and contains:
 
 - [ko-template.cls](./KO-Latex-version.20260916/ko-template.cls): page layout, headings, line numbers, typography, and reference formatting.
 - [LaTex-Article-template-KO.tex](./KO-Latex-version.20260916/LaTex-Article-template-KO.tex): the revised editable sample manuscript.
-- [references.bib](./KO-Latex-version.20260916/references.bib): sample references.
+- [references.bib](./KO-Latex-version.20260916/references.bib): two original published references plus 14 explicitly fictitious compilation examples, cited in labeled manuscript notes. Remove the fictitious examples before submission.
 - `figures/KO-header.png`, `figures/KO-footer.jpg`, and `figures/Fig. 1. Figure title.jpg`: assets in the latest version; the footer is used only with the optional `legacydecor` mode.
-- The compiled PDF, original Word template, `.gitignore`, README, validation report, and test sources.
+- The compiled PDF, original Word template, `.gitignore`, README, and reproducible test sources.
 
 See the [complete package manifest and instructions](./KO-Latex-version.20260916/README.md#release-contents). Paths inside the ZIP are relative to its extraction directory; the package is self-contained and does not use the older root-level files.
 
@@ -52,4 +52,4 @@ If using the downloaded ZIP, run the `latexmk` command directly in the extractio
 
 ## Repository Contents
 
-The current source files, image assets, Word reference, compiled preview, and downloadable ZIP are all under `KO-Latex-version.20260916/`. Intermediate build files are excluded by `.gitignore`. See the [validation report](./KO-Latex-version.20260916/QA.md) for test results and limitations.
+The current source files, image assets, Word reference, compiled preview, and downloadable ZIP are all under `KO-Latex-version.20260916/`. Local QA reports, intermediate build files, caches, and temporary files are excluded by `.gitignore`. Reproducible test sources remain public; see the [validation instructions](./KO-Latex-version.20260916/README.md#validation).

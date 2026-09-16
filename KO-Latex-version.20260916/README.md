@@ -104,7 +104,9 @@ Legacy `\KOEquation{math}{number}`, `\KOFigureImage`, `\KOFigureCaption`, and `\
 
 ## References
 
-Real sample references remain in `references.bib`. Validation fixtures in `tests/references-qa.bib` are **synthetic, not real publications**.
+`references.bib` contains the two original published sample references and **14 fictitious compilation examples**, with keys beginning `koexample-`. Every fictitious title explicitly says it is a compilation-only example; one uses a Chinese title. Two clearly labeled notes in the manuscript cite all 14 examples, including deliberately shuffled citation keys. These are formatting fixtures, **not evidence for manuscript claims**. Remove both compilation notes and all `koexample-*` entries before submitting a real paper. No invented DOI is supplied; the website fixture uses `example.org`.
+
+The examples cover 1, 2, 3, 4, 6, 7, and 8 authors, name prefixes/suffixes, hyphenated initials, accented/compound names, institutional authors, Chinese names, and article/book/chapter/patent/website entries. Separate regression fixtures in `tests/references-qa.bib` are also synthetic, not real publications.
 
 Bibliography drivers and citation settings remain together in the clearly separated reference section of `ko-template.cls`; there are no additional `.bbx` or `.cbx` files to distribute.
 
@@ -139,7 +141,6 @@ The ZIP contains exactly:
 ```text
 .gitignore
 README.md
-QA.md
 LaTex-Article-template-KO.tex
 LaTex-Article-template-KO.pdf
 ko-template.cls
@@ -159,7 +160,7 @@ tests/legacy-layout.tex
 tests/run_qa.py
 ```
 
-No fonts, intermediate build files, or nested ZIP are included. The preview uses XeLaTeX and the available Microsoft fonts; the Word template is unmodified.
+No fonts, local QA reports, intermediate build files, caches, or nested ZIP are included. Reproducible test sources remain included. The preview uses XeLaTeX and the available Microsoft fonts; the Word template is unmodified.
 
 ## Validation
 
@@ -169,4 +170,6 @@ With Python 3, Poppler (`pdftotext`), and TeX tools on PATH:
 python tests/run_qa.py
 ```
 
-This verifies both engines, reference fixtures, portable fonts, 2-6-column tables, standard floats, long captions, all four equation environments, cross-references, font-size restoration, optional legacy decoration/blank pages, and missing-resource, unsupported-engine, and running-title diagnostics. Outputs stay in ignored `build/`. See [QA.md](./QA.md) for validation results and limits.
+This verifies both engines, reference fixtures, portable fonts, 2-6-column tables, standard floats, long captions, all four equation environments, cross-references, font-size restoration, optional legacy decoration/blank pages, and missing-resource, unsupported-engine, and running-title diagnostics. Outputs stay in ignored `build/`; local QA reports are not published or packaged.
+
+Version 1.1 passed all 17 build/diagnostic cases on Windows with TeX Live 2026 and Biber 2.21, plus an independent build from the extracted ZIP. The main-manuscript checks additionally verify all 14 fictitious entries, citation sorting, six-author retention, seven/eight-author truncation, international names, and full dates. Native Linux/macOS and Overleaf were not tested; font fallback was tested locally. This validates the implementation against the supplied review requirements, not current journal policy independently.

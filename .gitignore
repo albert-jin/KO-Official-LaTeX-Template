@@ -28,3 +28,6 @@
 
 # Versioned release; its own ignore file excludes build artifacts.
 !KO-Latex-version.20260916/
+
+# Local QA reports are not part of the public template.
+**/QA.md

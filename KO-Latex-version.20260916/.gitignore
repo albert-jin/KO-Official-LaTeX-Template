@@ -1,3 +1,7 @@
+# Local maintenance reports (keep reproducible test sources tracked).
+QA.md
+
+# LaTeX / Biber intermediate files.
 *.aux
 *.bbl
 *.bcf
@@ -9,4 +13,40 @@
 *.run.xml
 *.xdv
 *.synctex.gz
+*.synctex
+*.synctex(busy)
+*.synctex.gz(busy)
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.dvi
+*.pdfsync
+*.bcf-SAVE-ERROR
+*.run.xml-SAVE-ERROR
+
+# Generated output, scratch directories, and Python caches.
 build/
+tmp/
+.cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+
+# Editor, Office, and operating-system temporary files.
+*.bak
+*.tmp
+*.swp
+*.swo
+*~
+~$*
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Deliberately keep the published PDF, ZIP, sources, images, and tests.

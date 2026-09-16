@@ -43,6 +43,35 @@ def verify_references(text):
     assert "Omitseven" not in text, "Seventh author should be omitted"
 
 
+def verify_main_examples(raw):
+    # Ignore margin line numbers and discretionary line-end hyphenation.
+    text = raw.decode("utf-8").replace("\f", "\n")
+    text = re.sub(r"(?m)^[ \t]*\d+[ \t]{2,}", "", text)
+    text = re.sub(r"(?<=\w)-\s*\n[ \t]*(?=\w)", "", text)
+    text = re.sub(r"\s+", " ", unicodedata.normalize("NFKC", text))
+    for fragment in [
+        "one author (Adams, 2001)", "authors (Baker and Brown, 2002)",
+        "three authors (Carter et al., 2003)", "four authors (Davis et al., 2004)",
+        "six authors (Foster et al., 2006)", "seven authors (Garcia et al., 2007)",
+        "eight authors (Harris et al., 2008)",
+        "(Adams, 2001; Baker and Brown, 2002; Carter et al., 2003; Davis et al., 2004)",
+        "Foster F, Grant G, Hill H, Irwin I, Jones J, King K. Fictitious reference",
+        "Garcia G, Harris H, Ito I, James J, Khan K, Lewis L, et al.",
+        "Harris H, Irwin I, Jones J, King K, Lee L, Moore M, et al.",
+        "Smith J Jr. Fictitious reference", "de la Cruz J, van Beethoven L.",
+        "Dupont J-P.", "In: Smith J Jr., van Beethoven L eds.",
+        "García Márquez J.", "Example Research Group. Fictitious reference",
+        "Available at: https://example.org/ (Accessed: 8 August 2000).",
+        "United States EXAMPLE-0001. 8 August 2016.",
+        "张三, 李四. 这是一个辅助编译的虚构示例文献",
+    ]:
+        assert fragment in text, "Main example output missing: " + fragment
+    for omitted in ["Miller M", "Nolan N", "Owens O"]:
+        assert omitted not in text, "Truncated author unexpectedly printed: " + omitted
+    assert text.count("Fictitious reference for template compilation only:") == 13
+    assert text.count("这是一个辅助编译的虚构示例文献") == 1
+
+
 def build(engine, source, directory, check_refs=False, layout=False, legacy=False):
     out = ROOT / "build" / directory
     out.mkdir(parents=True, exist_ok=True)
@@ -70,6 +99,7 @@ def build(engine, source, directory, check_refs=False, layout=False, legacy=Fals
                       "Figures / Tables:", "Correspondence:", "optional, but recommended"]:
             assert field in text, "Missing cover field: " + field
         raw = subprocess.check_output(["pdftotext", "-layout", str(out / (stem + ".pdf")), "-"], cwd=ROOT)
+        verify_main_examples(raw)
         pages = raw.decode("utf-8").split("\f")
         assert "Abstract" in pages[2 if legacy else 1], "Unexpected manuscript starting page"
         if legacy:
