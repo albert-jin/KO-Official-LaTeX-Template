@@ -1,0 +1,151 @@
+\documentclass{ko-template}
+\addbibresource{references.bib}
+
+\begin{document}
+
+\KOFrontDecor
+\KOCoverPaperType{Type of the Paper (This Word template contains the sections required for Articles.)}
+\KOCoverTitle{Title of the Manuscript}
+\KOCoverAuthors{First name Last name\textsuperscript{1,\dag}, First name Last name\textsuperscript{2,\dag}, First name Last name\textsuperscript{1,}*}
+\KOCoverAffiliation{\textsuperscript{1}Department, Institution, ZIP code City, State (if any), Country}
+\KOCoverAffiliation{\textsuperscript{2}Department, Institution, City, State (Abbreviated format) ZIP code, Country}
+\KOCoverAffiliation{*Correspondence: First name Last name}
+\KOCoverAffiliation{Department, Institution, Street address, City, State, Postal code, Country}
+\KOCoverAffiliation{Email: corresponding.author@example.org; Telephone: +XX XXX XXX XXXX}
+\KOCoverGap
+\KOCoverHighlight{Email (mandatory)}
+\KOCoverGap
+\KOCoverAffiliation{\dag These authors contributed equally.}
+\KOCoverGap
+\KOCoverHighlight{ORCID (optional, but recommended)}
+\KOOrcidLine{First name Last name: 0000-0002-2451-xxxx}
+\KOOrcidLine{First name Last name: 0000-0002-2452-xxxx}
+\KOOrcidLine{First name Last name: 0000-0002-2453-xxxx}
+\KOCoverGap
+% Use plain text; the class warns if the running title exceeds 60 characters.
+\KORunningTitle{Short running title (maximum 60 characters)}
+% Replace placeholders with the counts for your manuscript before submission.
+\KOCoverField{Word count (main text)}{[Enter main-text word count]}
+\KOCoverField{Word count (abstract)}{[Enter abstract word count; maximum 250 words]}
+\KOCoverField{Figures / Tables}{1 figure; 1 table}
+
+\KOBlankPage
+
+\KOStartManuscript
+\KOManuscriptTitle{Title of the Manuscript}
+
+\KONoIndent{Abstract}
+\KONoIndent{Manuscripts should include an abstract not exceeding 250 words, written to be understandable without reference to other sections of the paper. Abbreviations used only once should be spelled out in full. For abbreviations that appear multiple times, provide the definition once and use the abbreviation consistently thereafter. References, figures, tables, websites, equations, or other graphical elements should not be included in the abstract.}
+\KOLineBlank
+
+\KONoIndent{Keywords}
+\KONoIndent{keyword 1; keyword 2; keyword 3; keyword 4 [\KOGray{List at least three but no more than ten pertinent keywords.}]}
+\KOLineBlank
+
+\KOSection{1. Introduction [\KOGray{first level heading}]}
+State the objectives of the work and provide an adequate background to clarify why the study was undertaken and what hypotheses were tested, avoiding a detailed literature survey or a summary of the results. The information in this section should always be referenced. For your citations and reference list, please use the IMR~Press-APA Style (Purdue University, 2022a) \parencite{bagchi2021}. Try to avoid footnotes and endnotes. [\KODarkGray{Abbreviations should initially be introduced in the abstract and the main text, detailing their full form before usage}]
+
+\KOSection{2. Materials and Methods}
+This section should be clear and sufficiently detailed. Clearly outline the procedures, including a comprehensive explanation of data collection, analysis methods, and statistical approaches used. Specify the sources of any datasets, software, or tools utilized (e.g., database names, software versions, or vendors). If established methodologies are used, cite relevant references instead of providing extensive descriptions. Ensure clarity and precision in the presentation of methods. {\color{KODarkGray}\KOHighlight{[The suggested manuscript structure aims to standardize the presentation of submissions and facilitate reading and evaluation. However, we recognize that theoretical and conceptual articles may require adaptations. Therefore, while it is desirable to follow the proposed format, authors have the flexibility to adjust it according to the nature of their work. Nevertheless, the elements marked as mandatory must be included. The Editor-in-Chief will be responsible for ensuring that the manuscript structure aligns with the journal's standards.]}}
+
+\KOSection{3. Results}
+Results can be presented in tables or figures, with a particular emphasis on figures to improve reader accessibility. However, many straightforward findings may be presented directly in the text. Results should be clearly separated from the discussion, and it is recommended to avoid repeating results in the text that are already presented in figures or tables.
+
+\KOSubsection{3.1 Figures, Tables, Motions, and Equations, etc. [\KOGray{second level heading}]}
+All figures and tables should be cited in the main text as Fig. 1, Table 1, Eqn. 1, Motion 1, etc.
+
+\KOSubsubsection{3.1.1 Figures [\KOGray{third level heading}]}
+Provide figure images in TIF or JPG format. Color images must be in RGB mode; CMYK is not accepted. Minimum image resolutions are 800 dpi for line art, 600 dpi for combination artwork, and 300 dpi for halftone images. Web-quality images at 72 dpi are not accepted. Figures should be placed in the main text near the first time they are cited. Also, the legend should be detailed; it is not acceptable to give only one or two lines of description for figures.
+
+\KOFigureImage{figures/Fig. 1. Figure title.jpg}
+\KOFigureCaption{\textbf{Fig. 1. Figure title.} (A) Description of what is contained in the first subfigure. (B) Description of what is contained in the second subfigure. Abbreviations appearing in a figure should be listed here. Obtain permission and acknowledgement required by the copyright holder if a figure is being reproduced from another source.}
+
+\KOSubsubsection{3.1.2 Tables}
+Tables should be placed in the main text near the first time they are cited.
+
+\KOTableCaption{Table 1. This is a sample table caption.}
+\begin{KOTable}
+Title 1 & Title 2 & Title 3 & Title 4\\
+\hline
+Entry 1 & data & data & data\\
+\hline
+Entry 2 & data & data & data\\
+\hline
+Entry 3 & data & data & data\\
+\hline
+Entry 4 & data & data & data\\
+\hline
+\end{KOTable}
+\KONoIndent{Table footnotes.}
+
+\KOSubsubsection{3.1.3 Mathematical Components}
+\KOFourthHeading{Example 1. Equation [\KOGray{fourth level heading}]}
+\KOEquation{a = 1}{1}
+\KONoIndent{The text following an equation need not start as a new paragraph. Please punctuate equations as regular text.}
+\KONoIndent{Example 2. Equation}
+\KOEquation{a = b + c + d + e + x + y = X.}{2}
+\KONoIndent{If the text following an equation starts as a new paragraph, equations should still be punctuated as regular text.}
+
+\KOSubsection{3.2 Units}
+\begin{KOItemize}
+\item A space should be inserted before measurement units: 17 mL, 17 mol/L, 17 cm.
+\item Capitalize the letter L in some units: mL, L.
+\item The letter p should be lowercase and in italic type: \textit{p}, \textit{p}-value.
+\item Decimal points should use a full stop (.) NOT a comma (,): 0.17, 10.375.
+\end{KOItemize}
+
+\KOSection{4. Discussion}
+The discussion should be presented separately from the results and focus on interpreting the findings rather than restating them. Avoid excessive speculation and ensure that relevant literature is cited to support the interpretation. Toward the end of the discussion, briefly address the strengths and weaknesses of the research.
+
+\KOSection{5. Conclusions}
+The main conclusions of the study may be presented in a short Conclusions section, which may stand alone or form a subsection of a Discussion or Results and Discussion section. However, if the article type is Original Research, there must be a Conclusions section, which should be distinguished from the Discussion section.
+
+\KOSection{Abbreviations [\KOGray{optional section}]}
+ANOVA, analysis of variance; SEM, structural equation modeling; GDP, gross domestic product; HLM, hierarchical linear modeling.
+
+\KOSection{Supplementary Material [\KOGray{optional section}]}
+Authors of accepted manuscripts may provide related supplemental data to be posted online along with the published manuscript. Any file format is acceptable; however, we recommend that common, non-proprietary formats be used where possible. Before submission, carefully review all files; if you wish to make changes to supplementary material during any stage of the process, please make sure to provide an updated file. The journal is not responsible for any errors contained in data supplements.
+
+\KOSection{Appendix [\KOGray{optional section}]}
+All appendix materials must be cited in the main text.
+
+\KOSection{Availability of Data and Materials}
+This section strongly encourages that all datasets on which the conclusions of a manuscript depend should be available to readers, unless they are already provided as part of the submitted article. Authors who do not wish to share their data must state this fact and also provide an explanation as to why the data are unavailable. More information about \KOLink{Availability of Data and Materials}{https://www.imrpress.com/page/editorial-policies}.
+
+Example: All data reported in this paper will be shared by the corresponding author upon reasonable request.
+
+\KOSection{Author Contributions}
+All authors must meet the 4 criteria for authorship as outlined in the \KOLink{authorship}{https://www.imrpress.com/journal/KO/page/instructions}. Those who contributed to the work but do not meet the criteria for authorship can be mentioned in the Acknowledgments.
+
+\KONoIndent{\textbf{Example:} Initials (Author A) and Initials (Author C) designed the research study. Initials (Author B) performed the research. Initials (Author D) provided help and advice on ... Initials (Author A) analyzed the data. Initials (Author B, C and D) wrote the manuscript. All authors contributed to editorial changes in the manuscript. All authors read and approved the final manuscript.}
+
+\KOSection{Acknowledgment}
+This section is required for all papers. Here you can acknowledge any support given that is not covered by the author contribution or funding sections. This may include administrative and technical support, or donations in kind (e.g., materials used for experiments). Please do not thank the editors in this section, but you can send an email to express thanks. More information about \KOLink{Acknowledgment}{https://www.imrpress.com/page/editorial-policies}.
+
+\KONoIndent{\textbf{Example:} We gratefully acknowledge the assistance and instruction from Professor XXX of the XXX Institute for XXX and the XXX Investigators.}
+
+\KOSection{Funding}
+This section is required for all papers. Please add: “This research received no external funding.” or “This research was funded by Name of Funder, grant number XXX.”
+
+\KOSection{Conflicts of Interest}
+This section is required for all papers. If there are no interests to declare, please add: “The authors declare no conflicts of interest.” More information about \KOLink{Conflicts of Interest}{https://www.imrpress.com/page/editorial-policies}.
+
+\KOSection{Declaration of AI and AI-assisted Technologies in the Writing Process}
+In accordance with \KOLink{COPE’s stated position}{https://publicationethics.org/cope-position-statements/ai-author} on AI tools, artificial intelligence chatbots, such as \KOLink{ChatGPT}{https://openai.com/index/chatgpt/} and similar AI tools based on large language models (LLMs), cannot be listed as an author of a paper. If the author(s) have used AI tools in drafting of the manuscript, production of images or graphical elements of the paper, or in the collection and analysis of data, the authors must be transparent concerning the use of AI tools \parencite{aljanabi2023}. Furthermore, the use of AI tools must be disclosed in this section. Authors are fully responsible for the content of their manuscript, even those portions produced by an AI tool, and are thus liable for any breach of publication ethics. Final decisions concerning whether the use of an AI tool is appropriate or permissible in a submitted manuscript lie with the journals’ editors. Specifically, the Editor-in-Chief is responsible for decisions concerning regular journal submissions, or an Editorial Board member may be appointed by the Editor-in-Chief to make such judgments in the case of conflicts of interest or for other circumstances.
+
+\KONoIndent{\textbf{Example:} During the preparation of this work, the authors used ChatGPT-3.5 in order to check spelling and grammar. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the content of the publication.}
+
+\KOSection{References and Notes}
+\KONoIndent{Please note that authors are responsible for the accuracy and completeness of their \KOLink{references}{https://www.imrpress.com/page/editorial-policies}.}
+\KONoIndent{Sample reference citation (\KOLink{Download style}{https://storage.imrpress.com/IMR/1993572645107503000/application/EndNote-style-authoryear.ens}).}
+
+\KONoIndent{Authors’ last names initials. Title. Name of periodical. Year; Volume number: page numbers. DOI link.}
+
+\KONoIndent{Book: Authors’ last names initials. Book title. Publisher: city. Year.}
+\KONoIndent{Chapter in a book: Chapter authors. Chapter title. In: Editors (eds.). Book title. Pages. Publisher: city. Year.}
+\KONoIndent{Patent: Inventors. Assignee. Patent title. Country, patent number. Full date.}
+\KONoIndent{Website: Authors. Title. Year. Available at: URL (Accessed: day month year).}
+
+\printbibliography[heading=none]
+
+\end{document}

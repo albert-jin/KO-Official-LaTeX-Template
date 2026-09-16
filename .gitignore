@@ -11,7 +11,7 @@
 
 # Core LaTeX template sources
 !ko-template.cls
-!LaTex-Article-template-KO.tex
+!LaTex-Article-template-KO.tex.old
 !references.bib
 
 # Required template assets
@@ -24,5 +24,7 @@
 !Microsoft-Word-Article-template-KO.docx
 
 # Final distributable package, generated after the template is complete
-!KO-LaTeX-Article-Template.zip
 !LaTex-Article-template-KO.pdf
+
+# Versioned release; its own ignore file excludes build artifacts.
+!KO-Latex-version.20260916/
