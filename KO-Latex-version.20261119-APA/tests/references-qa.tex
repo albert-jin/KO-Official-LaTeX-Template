@@ -1,0 +1,16 @@
+\documentclass{ko-template}
+\addbibresource{tests/references-qa.bib}
+\begin{document}
+\KOSection{Synthetic reference QA}
+\noindent One: \parencite{one}. Two: \parencite{two}.
+Three: \parencite{three}. Four: \parencite{four}.
+
+\noindent Shuffled: \parencite{four,two,three,one}.
+
+% Separate multicite groups retain input order (they may carry per-work notes).
+\noindent Multicite: \parencites{one}{two}{three}{four}.
+
+\noindent International: \parencite{patent,chapter,accent,chinese,web}.
+\nocite{*}
+\printbibliography[heading=none]
+\end{document}
